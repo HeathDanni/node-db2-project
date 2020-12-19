@@ -22,4 +22,15 @@ router.get("/cars/:id", async (req, res, next) => {
     }
 })
 
+router.post("/cars", async (req, res, next) => {
+    try{
+        const [id] = await db("cars").insert(req.body)
+        const newCar = await db("cars").where({id}).first()
+        
+        res.status(201).json(newCar)
+    } catch(err) {
+        next(err)
+    }
+})
+
 module.exports = router
