@@ -6,8 +6,6 @@ exports.up = async function(knex) {
       table.text("make").notNull()
       table.text("model").notNull()
       table.integer("mileage").notNull()
-      table.text("transmission")
-      table.text("title")
   })
 };
 
